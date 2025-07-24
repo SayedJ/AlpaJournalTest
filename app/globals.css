@@ -1,0 +1,136 @@
+/* app/globals.css */
+
+/* Make sure your @import or @font-face rules are at the very top if you have them */
+@import "tailwindcss";
+@tailwind utilities;
+
+/* Your existing custom properties for base colors/fonts */
+:root {
+  --background: #f3f4f6;
+  --foreground: #000000;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --font-roboto: var(--font-roboto, ui-sans-serif, system-ui, sans-serif);
+  --font-sans: var(
+    --font-roboto,
+    --font-geist-sans,
+    ui-sans-serif,
+    system-ui,
+    sans-serif
+  );
+  --font-mono: var(--font-geist-mono, ui-monospace, SFMono-Regular, monospace);
+
+  --color-text-light: #ffffff;
+  --color-text-dark: #000000;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+
+    --color-text-light: #ededed; /* Or slightly off-white for dark mode */
+    --color-text-dark: #0a0a0a;
+  }
+}
+
+body {
+  background-color: #f9fafb;
+  color: var(--color-foreground);
+  font-family: "Roboto", sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- Tailwind CSS v4 Theme Customizations with @theme directive --- */
+@theme {
+  /* --- Custom Colors --- */
+
+  /* Primary Blue (from 'View All Articles' button, 'Computer Science' icon, and some text) */
+  --color-primary-50: #e0f2f7;
+  --color-primary-100: #b2e6fa;
+  --color-primary-200: #85d9f7;
+  --color-primary-300: #59ccf4;
+  --color-primary-400: #30bff0;
+  --color-primary-500: #03b0ed; /* Main blue from button */
+  --color-primary-600: #0294c7;
+  --color-primary-700: #01779f;
+  --color-primary-800: #005a76;
+  --color-primary-900: #003e4d;
+  --color-primary-950: #002530;
+
+  /* Secondary Green (from 'Biology' category icon) */
+  --color-secondary-50: #edfdf1;
+  --color-secondary-100: #d6fae2;
+  --color-secondary-200: #bcf6ce;
+  --color-secondary-300: #9ff1ba;
+  --color-secondary-400: #86ecad;
+  --color-secondary-500: #6de79a; /* Main green from icon */
+  --color-secondary-600: #56c27e;
+  --color-secondary-700: #429d66;
+  --color-secondary-800: #2f774e;
+  --color-secondary-900: #1d5236;
+  --color-secondary-950: #0f3421;
+
+  --color-thirdly-50: #fafafa;
+  --color-thirdaly-100: #f2f2f2;
+
+  /* Other Accents from Categories (Optional, but useful) */
+  --color-accent-purple: #9063f9; /* From Physics icon */
+  --color-accent-orange: #f29c4c; /* From Mathematics icon */
+  --color-accent-red: #ea646d; /* From Medicine icon */
+  --color-accent-dark-blue: #5798f0; /* From Chemistry icon */
+  --color-accent-light-gray: #f5f7f8; /* Background of category boxes */
+  --color-text-gray: #6b7280; /* General body text color */
+  --color-border-gray: #e5e7eb; /* Border color for cards */
+
+  /* Custom Fonts (assuming they are loaded as discussed before) */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Roboto Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-heading: "Playfair Display", serif; /* Example if you add a heading font */
+
+  /* Custom Spacing (Margin & Padding) - Example */
+  --spacing-content-area: 3rem;
+  --spacing-section-gap: 4rem;
+
+  /* Custom Border Radii - Example */
+  --radius-card: 0.75rem; /* ~12px for the main article cards */
+  --radius-button: 0.5rem; /* ~8px for the button */
+  --radius-icon-circle: 9999px; /* For the small user profile images */
+
+  --color-text-light: #ffffff;
+  --color-text-dark: #000000;
+}
+
+/* Dark mode overrides for your custom theme colors if desired */
+@media (prefers-color-scheme: dark) {
+  @theme {
+    --color-primary-500: #67b7f7; /* Lighter blue for dark mode primary */
+    --color-secondary-500: #93e6a0; /* Slightly lighter green for dark mode secondary */
+    --color-accent-purple: #b391fa;
+    --color-accent-orange: #f5b97d;
+    --color-accent-red: #ed8c93;
+    --color-accent-dark-blue: #86b4f7;
+    --color-accent-light-gray: #1a1a1a; /* Darker background for dark mode boxes */
+    --color-text-gray: #a1a1aa; /* Lighter text in dark mode */
+    --color-border-gray: #3f3f46; /* Darker border in dark mode */
+  }
+}
+
+/* Optional: Layer custom components or utilities */
+@layer components {
+  .btn-primary {
+    @apply bg-primary-500 text-white py-3 px-8 rounded-button hover:bg-primary-600 transition-colors duration-200;
+  }
+  .article-card {
+    @apply bg-white dark:bg-gray-900 p-6 rounded-card shadow-md border border-border-gray dark:border-gray-700;
+  }
+  .category-icon-box {
+    @apply w-16 h-16 flex items-center justify-center rounded-lg;
+  }
+}
+.btn-test {
+  @apply bg-pink-300 text-text-dark rounded-button hover:bg-pink-400;
+}
